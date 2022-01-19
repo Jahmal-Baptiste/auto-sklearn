@@ -25,7 +25,7 @@ import scipy.stats
 from sklearn.base import BaseEstimator
 from sklearn.ensemble import VotingRegressor
 from sklearn.model_selection._split import _RepeatedSplits, \
-    BaseShuffleSplit, BaseCrossValidator, TimeSeriesSplit, _BaseKFold
+    BaseShuffleSplit, BaseCrossValidator, TimeSeriesSplit
 from smac.runhistory.runhistory import RunInfo, RunValue
 from smac.tae import StatusType
 from smac.stats.stats import Stats
@@ -1004,7 +1004,7 @@ class AutoML(BaseEstimator):
             self._resampling_strategy,
             (BaseCrossValidator, _RepeatedSplits, BaseShuffleSplit, TimeSeriesSplit)
         )
-        print(isinstance(self._resampling_strategy, _BaseKFold))
+        print(type(self._resampling_strategy))
 
         if self._resampling_strategy not in [
                 'holdout',
